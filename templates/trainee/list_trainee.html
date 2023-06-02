@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>NAME</td>
+        <td>EMAIL</td>
+        <td>PASSWORD</td>
+        <td>UPDATE</td>
+        <td>DELETE</td>
+      </tr>
+    {%for x in trainee %}
+      <tr>
+        <td>{{x.id}}</td>
+        <td>{{x.name}}</td>
+        <td>{{x.email}}</td>
+        <td>{{x.password}}</td>
+                  
+        <td><a href="{% url 'update_trainee' x.id %}">Update</a></td>
+        <td><a href="{% url 'delete_trainee'  x.id %}">Delete</a></td>
+
+      </tr>
+      {% endfor %}
+</table>
+
+{% endblock %}

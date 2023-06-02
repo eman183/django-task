@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>NAME</td>
+        <td>ACTIVE</td>
+        <td>UPDATE</td>
+        <td>DELETE</td>
+      
+
+
+        
+
+
+      </tr>
+    {%for x in courses %}
+      <tr>
+        <td>{{x.id}}</td>
+        <td>{{x.name}}</td>
+        <td>{{x.active}}</td>
+        <td><a href="{% url 'update_course' x.id %}">Update</a></td>
+        <td><a href="{% url 'delete_course'  x.id %}">Delete</a></td>   
+           
+     
+      </tr>
+      {% endfor %}
+</table>
+<div style="font-size:20px;color: rgb(21, 33, 172)">
+    <p>ADD course</p>
+
+    <a style="color: rgb(21, 33, 172)" href="{% url 'add_course'  %}">Add</a>
+</div>
+
+{% endblock %}
